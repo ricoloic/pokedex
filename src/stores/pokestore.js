@@ -16,7 +16,7 @@ const processPokedex = (queryResponse) =>
 
 const queryPokedex = async(pokemonAmount = 20) => {
     try {
-        const response = await axios.get(POKE_API_ENDPOINT + `?count=${pokemonAmount}`);
+        const response = await axios.get(POKE_API_ENDPOINT + `?limit=${pokemonAmount}`);
         const processedPokedex = processPokedex(response);
 
         pokedex.set(processedPokedex);
@@ -25,4 +25,4 @@ const queryPokedex = async(pokemonAmount = 20) => {
     }
 };
 
-queryPokedex();
+queryPokedex(100);
